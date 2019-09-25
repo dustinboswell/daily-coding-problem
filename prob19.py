@@ -4,15 +4,12 @@ A builder is looking to build a row of N houses that can be of K different color
 Given an N by K matrix where the nth row and kth column represents the cost to build the nth house with kth color, return the minimum cost which achieves this goal.
 '''
 
-'''
-Dustin: First, observe that only the cheapest 3 colors are relevant for any 1 house.
-Now let's build a 3xN matrix, where the cell is the sum of costs for building the
-nth house with that color, and minimizing the houses to the right.
-'''
+# Note that only the cheapest 3 colors are relevant for any 1 house.
 
 def minimum_cost(costs):
-    '''write over costs in place'''
-    #print(f"costs={costs}")
+    '''costs[n][k] will become the minimum cost to color the subrange of houses starting at n,
+    assuming n is colored k.  We write over costs in place.
+    '''
     N = len(costs)
     K = len(costs[0])
     def find_min(array, exclude_i):
@@ -29,7 +26,6 @@ def minimum_cost(costs):
                 costs[n][k] += min_next_cost2
             else:
                 costs[n][k] += min_next_cost
-    #print(f"sum={costs}")
     return min(costs[0][k] for k in range(K))
 
-print(minimum_cost([[1,2,3], [3,2,1], [1,1,1], [2,2,2]]))
+assert 5 == minimum_cost([[1,2,3], [3,2,1], [1,1,1], [2,2,2]])
