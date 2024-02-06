@@ -24,7 +24,7 @@ def play_game(final_die, prev_die):
 def avg(nums):
     return sum(nums) / len(nums)
 
-game1_nums = [play_game(final_die=6, prev_die=5) for _ in range(100000)]
+game1_nums = [play_game(final_die=6, prev_die=5) for _ in range(300000)]
 print(f"Game1(5 then 6): {avg(game1_nums):2.2f} rolls on avg")
-game2_nums = [play_game(final_die=5, prev_die=5) for _ in range(100000)]
+game2_nums = [play_game(final_die=5, prev_die=5) for _ in range(300000)]
 print(f"Game2(5 then 5): {avg(game2_nums):2.2f} rolls on avg")
