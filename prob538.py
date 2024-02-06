@@ -58,5 +58,9 @@ def solve(chars, k):
     done_size = len(chars) ** k
     return recursive_solve(done_set, done_size, "", chars, k)
 
-for k in [1,2,3,4,5,6]:
-    print(f"{solve('01', k)=}")
+def main():
+    for k in [1,2,3,4,5,6]:
+        print(f"{solve('01', k)=}")
+
+if __name__ == '__main__':
+    main()
